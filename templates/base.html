@@ -29,9 +29,14 @@
                 <nav class="d-none d-lg-flex">
                     <a href="#" class="nav-link active">خانه</a>
                     <a href="#" class="nav-link">فیلم‌ها</a>
-                    <a href="#" class="nav-link">سریال‌ها</a>
-                    <a href="#" class="nav-link">دسته‌بندی‌ها</a>
-                    <a href="#" class="nav-link">تماشاخانه</a>
+                {% if user.is_authenticated %}
+                <form method="POST" action="{% url "logout" %}">
+                    {% csrf_token %}
+                    <button class="nav-link" type="submit">خروج</button>
+                </form>
+                {% else %}
+                    <a href="{% url "accounts:signup" %}" class="nav-link">ورود | ثبت نام</a>
+                {% endif %}
                     <a href="#" class="nav-link">مقالات</a>
                 </nav>
                 

@@ -27,6 +27,8 @@ urlpatterns = [
     path("subscription/",include("Subscription.urls")),
     path("comment/",include("Comment.urls")),
     path("blog/",include("blog.urls")),
+    path('accounts/',include('django.contrib.auth.urls')),
+    path("accounts/",include("accounts.urls")),
 ]
 
 
